@@ -57,7 +57,7 @@ server.post('/api/dogs', (req, res) => {
   Dog.create(newDog)
     .then(dog => {
       // throw new Error('AAAAAAAHHHHH!!!!')
-      console.log(dog)
+      res.json(dog)
     })
     .catch(err => {
       res.status(500).json({ message: err.message })
