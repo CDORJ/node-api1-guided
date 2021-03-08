@@ -2,8 +2,8 @@
 // IMPORTS AT THE TOP
 // IMPORTS AT THE TOP
 const express = require('express') // import express from 'express'
-// const Dog = require('./dog-model.js')
-const { findAll, findById } = require('./dog-model')
+// const { findAll, findById } = require('./dog-model')
+const Dog = require('./dog-model.js')
 
 // INSTANCE OF EXPRESS APP
 // INSTANCE OF EXPRESS APP
@@ -28,6 +28,7 @@ server.use('*', (req, res) => {
 // [GET] /api/dogs/:id (R of CRUD, fetch dog by :id)
 
 // [GET] /api/dogs (R of CRUD, fetch all dogs)
+server.get()
 
 // [POST] /api/dogs (C of CRUD, create new dog from JSON payload)
 
