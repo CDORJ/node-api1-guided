@@ -27,7 +27,7 @@ server.get('/api/dogs/:id', (req, res) => {
     .then(dog => {
       console.log('we are getting -->', dog) // testing
       if (!dog) {
-        res.status(404).json({ message: `Dog with id ${id} not in db`})
+        res.status(404).json({ message: `Dog with id ${id} not in db` })
       } else {
         res.json(dog)
       }
@@ -53,20 +53,22 @@ server.get('/api/dogs', (req, res) => {
 
 // [POST] /api/dogs (C of CRUD, create new dog from JSON payload)
 server.post('/api/dogs', (req, res) => {
+  // pull any info you need from req
   const newDog = req.body
 
-  if(!newDog.name || !newDog.weight) {
-    res.status(422).json()
+  if (!newDog.name || !newDog.weight) { // validate req things if needed
+    res.status(422).json({ message: 'name and weight are required!' })
+  } else {
+    Dog.create(newDog)
+      .then(dog => {
+        // throw new Error('AAAAAAAHHHHH!!!!')
+        res.json(dog)
+      })
+      .catch(err => {
+        res.status(500).json({ message: err.message })
+      })
   }
 
-  Dog.create(newDog)
-    .then(dog => {
-      // throw new Error('AAAAAAAHHHHH!!!!')
-      res.json(dog)
-    })
-    .catch(err => {
-      res.status(500).json({ message: err.message })
-    })
 })
 
 // [PUT] /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
