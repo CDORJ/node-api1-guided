@@ -23,10 +23,12 @@ server.use(express.json()) // teaches express to parse the bodies of reqs as JSO
 
 // [GET] /api/dogs (R of CRUD, fetch all dogs)
 server.get('/api/dogs', (req, res) => {
+  // CAREFUL NEVER TO RESPOND MORE THAN ONCE ---> ERROR
   // res.status(200).json('it works!!!!!!!')
   Dog.findAll()
     .then(dogs => {
       console.log(dogs)
+      
     })
     .catch(err => {
       res.status(500).json({ message: err.message })
