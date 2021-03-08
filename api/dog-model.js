@@ -1,5 +1,7 @@
 const shortid = require('shortid') // lib for generating very unique ids
 
+// MVC
+
 // single table in this fake db
 // dogs table
 let dogs = [
