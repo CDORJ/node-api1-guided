@@ -64,7 +64,7 @@ server.post('/api/dogs', (req, res) => {
       .then(dog => {
         // throw new Error('AAAAAAAHHHHH!!!!')
         // send an appropriate response
-        res.status()json(dog)
+        res.status(201).json(dog)
       })
       .catch(err => {
         // send an appropriate response
