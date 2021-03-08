@@ -80,7 +80,9 @@ server.put('/api/dogs/:id', async (req, res) => {
 
   try {
     const updatedDog = await Dog.update(id, changes)
-    res.json(updatedDog)
+    if (!updatedDog) {
+      res.status(404).json({ message: 'that dog does not exist in db'})
+    }
   } catch(err) {
     res.status(500).json({ message: err.message })
   }
