@@ -57,18 +57,20 @@ server.post('/api/dogs', (req, res) => {
   const newDog = req.body
 
   if (!newDog.name || !newDog.weight) { // validate req things if needed
+    // send an appropriate response
     res.status(422).json({ message: 'name and weight are required!' })
   } else {
     Dog.create(newDog)
       .then(dog => {
         // throw new Error('AAAAAAAHHHHH!!!!')
+        // send an appropriate response
         res.json(dog)
       })
       .catch(err => {
+        // send an appropriate response
         res.status(500).json({ message: err.message })
       })
   }
-
 })
 
 // [PUT] /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
