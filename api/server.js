@@ -64,7 +64,7 @@ server.post('/api/dogs', (req, res) => {
       .then(dog => {
         // throw new Error('AAAAAAAHHHHH!!!!')
         // send an appropriate response
-        res.json(dog)
+        res.status()json(dog)
       })
       .catch(err => {
         // send an appropriate response
@@ -79,11 +79,10 @@ server.put('/api/dogs/:id', async (req, res) => {
   const changes = req.body
 
   try {
-    const stuff = await Dog.update(id, changes)
-
-    console.log(stuff)
+    const updatedDog = await Dog.update(id, changes)
+    res.json(updatedDog)
   } catch(err) {
-    
+    res.status(500).json({ message: err.message })
   }
 })
 
