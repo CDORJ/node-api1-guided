@@ -36,3 +36,4 @@ server.use('*', (req, res) => {
 // EXPOSING THE SERVER TO OTHER MODULES
 // EXPOSING THE SERVER TO OTHER MODULES
 // EXPOSING THE SERVER TO OTHER MODULES
+module.exports = server
