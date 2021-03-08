@@ -1,8 +1,10 @@
 const shortid = require('shortid')
 
+// single table in this fake db
+// dogs table
 let dogs = [
-  { id: shortid.generate(), name: 'Captain', weight: 25, adopter_id: null },
-  { id: shortid.generate(), name: 'Doggo', weight: 13, adopter_id: null },
+  { id: shortid.generate(), name: 'Captain', weight: 25, adopter_id: null }, // row or record
+  { id: shortid.generate(), name: 'Doggo', weight: 13, adopter_id: null }, // another record
 ]
 
 module.exports = {
