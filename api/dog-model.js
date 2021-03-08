@@ -6,6 +6,10 @@ let dogs = [
   { id: shortid.generate(), name: 'Captain', weight: 25, adopter_id: null }, // row or record
   { id: shortid.generate(), name: 'Doggo', weight: 13, adopter_id: null }, // another record
 ]
+// adopters table
+let adopters = [
+  
+]
 
 module.exports = {
   findAll() {
