@@ -18,8 +18,8 @@ server.use(express.json()) // teaches express to parse the bodies of reqs as JSO
 // ENDPOINTS
 
 // [GET] / (Hello World endpoint)
-server.use('*', () => {
-  
+server.use('*', (req, res) => {
+  // here we do whatever with the request from the client
 })
 
 // [GET] /api/dogs/:id (R of CRUD, fetch dog by :id)
