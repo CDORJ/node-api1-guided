@@ -100,7 +100,9 @@ server.delete('/api/dogs/:id', async (req, res) => {
   try {
     const deleted = await Dog.delete()
     if (!deleted) {
-      
+      res.status(404).json({ message: 'that dog does not exist in db' })
+    } else {
+      res.json(deleted)
     }
   } catch(err) {
     res.status(500).json({ message: err.message })
