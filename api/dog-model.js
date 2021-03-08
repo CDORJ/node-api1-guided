@@ -11,7 +11,7 @@ let adopters = [
   { id: shortid.generate(), name: 'Peter' }
 ]
 
-module.exports = {  // 
+module.exports = {  // const helpers = require('./helpers.js') // commonjs
   findAll() {
     // SELECT * FROM dogs;
     return Promise.resolve(dogs)
