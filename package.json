@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node index.js",
-    "server": "nodemon index.js"
+    "server": "nodemon index.js",
+    "ketchup": "git fetch && "
   },
   "dependencies": {
     "express": "^4.17.1",
