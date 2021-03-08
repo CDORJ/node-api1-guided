@@ -1,2 +1,4 @@
 // import the server and start it
-const server = require()
+const server = require('./api/server.js')
+
+server.listen()
