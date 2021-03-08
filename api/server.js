@@ -11,7 +11,7 @@ const server = express()
 // GLOBAL MIDDLEWARE
 // GLOBAL MIDDLEWARE
 // GLOBAL MIDDLEWARE
-server.use()
+server.use(express.json())
 
 // ENDPOINTS
 // ENDPOINTS
