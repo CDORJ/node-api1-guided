@@ -26,6 +26,9 @@ server.get('/api/dogs/:id', (req, res) => {
   Dog.findById(id)
     .then(dog => {
       console.log('we are getting -->', dog) // testing
+      if (!dog) {
+        res.status(404).json({ message: `Dog with id `})
+      }
       res.json(dog)
     })
     .catch(err => {
