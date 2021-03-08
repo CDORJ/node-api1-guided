@@ -27,9 +27,10 @@ server.get('/api/dogs/:id', (req, res) => {
     .then(dog => {
       console.log('we are getting -->', dog) // testing
       if (!dog) {
-        res.status(404).json({ message: `Dog with id `})
+        res.status(404).json({ message: `Dog with id ${id} not in db`})
+      } else {
+        res.json(dog)
       }
-      res.json(dog)
     })
     .catch(err => {
       res.status(500).json({ message: err.message })
