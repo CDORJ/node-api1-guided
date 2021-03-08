@@ -20,9 +20,10 @@ server.use(express.json()) // teaches express to parse the bodies of reqs as JSO
 // ENDPOINTS
 
 // [GET] /api/dogs/:id (R of CRUD, fetch dog by :id)
-server.get('/api/dogs/:foo', (req, res) => {
+server.get('/api/dogs/:id', (req, res) => {
   // ? where is this id parameter coming from?
-  const id = req.params.foo
+  const id = req.params.id
+  res.json()
 })
 
 // [GET] /api/dogs (R of CRUD, fetch all dogs)
