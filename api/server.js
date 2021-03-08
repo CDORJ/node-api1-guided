@@ -36,7 +36,7 @@ server.get('/api/dogs', (req, res) => {
 // [GET] / (Hello World endpoint)
 server.use('*', (req, res) => {
   // here we do whatever with the request from the client
-  res.status(404).json({ message: 'hello world again!' })
+  res.status(404).json({ message: 'resource not found in this server' })
 })
 
 // EXPOSING THE SERVER TO OTHER MODULES
