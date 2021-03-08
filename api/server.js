@@ -24,6 +24,7 @@ server.use(express.json()) // teaches express to parse the bodies of reqs as JSO
 // [GET] /api/dogs (R of CRUD, fetch all dogs)
 server.get('/api/dogs', (req, res) => {
   res.status(200).json('it works!!!!!!!')
+  Dog.findAll()
 })
 
 // [POST] /api/dogs (C of CRUD, create new dog from JSON payload)
