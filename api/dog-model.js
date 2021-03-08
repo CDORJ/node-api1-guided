@@ -8,7 +8,7 @@ let dogs = [
 ]
 // adopters table
 let adopters = [
-  
+  { id: shortid.generate(), name: 'Peter' }
 ]
 
 module.exports = {
