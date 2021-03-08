@@ -79,15 +79,16 @@ server.put('/api/dogs/:id', async (req, res) => {
   const changes = req.body
 
   try {
-    if (!changes.name || !newDog.changes) { // validate req things if needed
+    if (!changes.name || !changes.weight) { // validate req things if needed
       // send an appropriate response
       res.status(422).json({ message: 'name and weight are required!' })
-    }
-    const updatedDog = await Dog.update(id, changes)
-    if (!updatedDog) {
-      res.status(404).json({ message: 'that dog does not exist in db' })
     } else {
-      res.json(updatedDog)
+      const updatedDog = await Dog.update(id, changes)
+      if (!updatedDog) {
+        res.status(404).json({ message: 'that dog does not exist in db' })
+      } else {
+        res.json(updatedDog)
+      }
     }
   } catch (err) {
     res.status(500).json({ message: err.message })
