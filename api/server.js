@@ -1,6 +1,7 @@
 // IMPORTS AT THE TOP
 // IMPORTS AT THE TOP
 // IMPORTS AT THE TOP
+const express = require('express') // import express from 'express'
 
 // INSTANCE OF EXPRESS APP
 // INSTANCE OF EXPRESS APP
