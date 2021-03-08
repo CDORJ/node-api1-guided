@@ -23,7 +23,8 @@ server.use(express.json()) // teaches express to parse the bodies of reqs as JSO
 server.get('/api/dogs/:id', (req, res) => {
   // ? where is this id parameter coming from?
   const id = req.params.id
-  res.json()
+  res.json(`you requested the data of dog id ${id}`)
+  
 })
 
 // [GET] /api/dogs (R of CRUD, fetch all dogs)
