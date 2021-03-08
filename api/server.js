@@ -19,12 +19,6 @@ server.use(express.json()) // teaches express to parse the bodies of reqs as JSO
 // ENDPOINTS
 // ENDPOINTS
 
-// [GET] / (Hello World endpoint)
-server.use('*', (req, res) => {
-  // here we do whatever with the request from the client
-  res.status(200).json({ message: 'hello world again!' })
-})
-
 // [GET] /api/dogs/:id (R of CRUD, fetch dog by :id)
 
 // [GET] /api/dogs (R of CRUD, fetch all dogs)
@@ -37,6 +31,13 @@ server.get('/api/dogs', (req, res) => {
 // [PUT] /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
 
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
+
+
+// [GET] / (Hello World endpoint)
+server.use('*', (req, res) => {
+  // here we do whatever with the request from the client
+  res.status(404).json({ message: 'hello world again!' })
+})
 
 // EXPOSING THE SERVER TO OTHER MODULES
 // EXPOSING THE SERVER TO OTHER MODULES
