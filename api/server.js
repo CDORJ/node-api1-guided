@@ -82,6 +82,8 @@ server.put('/api/dogs/:id', async (req, res) => {
     const stuff = await Dog.update(id, changes)
 
     console.log(stuff)
+  } catch(err) {
+    
   }
 })
 
