@@ -74,6 +74,9 @@ server.post('/api/dogs', (req, res) => {
 })
 
 // [PUT] /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
+server.put('/api/dogs/:id', async (req, res) => {
+
+})
 
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
 
