@@ -78,9 +78,11 @@ server.put('/api/dogs/:id', async (req, res) => {
   const { id } = req.params
   const changes = req.body
 
-  const stuff = await Dog.update(id, changes)
+  try {
+    const stuff = await Dog.update(id, changes)
 
-  console.log(stuff)
+    console.log(stuff)
+  }
 })
 
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
