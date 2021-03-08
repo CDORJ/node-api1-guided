@@ -54,6 +54,11 @@ server.get('/api/dogs', (req, res) => {
 // [POST] /api/dogs (C of CRUD, create new dog from JSON payload)
 server.post('/api/dogs', (req, res) => {
   const newDog = req.body
+
+  if(!newDog.name || !newDog.weight) {
+    res.status(422).json()
+  }
+
   Dog.create(newDog)
     .then(dog => {
       // throw new Error('AAAAAAAHHHHH!!!!')
