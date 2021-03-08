@@ -2,7 +2,8 @@
 // IMPORTS AT THE TOP
 // IMPORTS AT THE TOP
 const express = require('express') // import express from 'express'
-const Dog = require('./dog-model.js')
+// const Dog = require('./dog-model.js')
+const { findAll, findById } = require('./dog-model')
 
 // INSTANCE OF EXPRESS APP
 // INSTANCE OF EXPRESS APP
