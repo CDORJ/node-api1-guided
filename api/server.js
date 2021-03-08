@@ -11,13 +11,14 @@ const server = express()
 // GLOBAL MIDDLEWARE
 // GLOBAL MIDDLEWARE
 // GLOBAL MIDDLEWARE
-server.use(express.json())
+server.use(express.json()) // teaches express to parse the bodies of reqs as JSON
 
 // ENDPOINTS
 // ENDPOINTS
 // ENDPOINTS
 
 // [GET] / (Hello World endpoint)
+server.use()
 
 // [GET] /api/dogs/:id (R of CRUD, fetch dog by :id)
 
