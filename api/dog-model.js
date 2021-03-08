@@ -1,4 +1,4 @@
-const shortid = require('shortid')
+const shortid = require('shortid') // lib for generating very unique ids
 
 // single table in this fake db
 // dogs table
