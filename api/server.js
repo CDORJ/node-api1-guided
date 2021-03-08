@@ -25,6 +25,7 @@ server.get('/api/dogs/:id', (req, res) => {
   const id = req.params.id
   Dog.findById(id)
     .then(dog => {
+      console.log(dog) // testing 
       res.json(dog)
     })
     .catch(err => {
