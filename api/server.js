@@ -55,6 +55,12 @@ server.get('/api/dogs', (req, res) => {
 server.post('/api/dogs', (req, res) => {
   const newDog = req.body
   Dog.create(newDog)
+    .then(dog => {
+      throw new Error('AAAAAAAHHHHH!!!!')
+    })
+    .catch(err => {
+      res.status(500).json({ message: err.message })
+    })
 })
 
 // [PUT] /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
