@@ -3,16 +3,15 @@
 // IMPORTS AT THE TOP
 const express = require('express') // import express from 'express'
 
-
-
 // INSTANCE OF EXPRESS APP
 // INSTANCE OF EXPRESS APP
 // INSTANCE OF EXPRESS APP
-
+const server = express()
 
 // GLOBAL MIDDLEWARE
 // GLOBAL MIDDLEWARE
 // GLOBAL MIDDLEWARE
+server.use()
 
 // ENDPOINTS
 // ENDPOINTS
