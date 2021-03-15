@@ -21,7 +21,11 @@ server.get("/api/dogs/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const dog = await Dog.findById(id);
-    res.json(dog);
+    if (dog) {
+      res.json(dog);
+    } else {
+      res.status(404).json({ message: "bad id" });
+    }
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: err });
@@ -57,20 +61,38 @@ server.post("/api/dogs", async (req, res) => {
 });
 
 // [PUT] /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
-server.put("/api/dogs/:id"),
-  async (req, res) => {
-    const { id } = req.params;
-    const dog = req.body;
-    try {
-      const updatedDog = await Dog.update(id, dog);
-      if (updatedDog) {
-        res.json(updatedDog);
-      }
-    } catch (err) {
-      console.log(err);
-      res.status(500).json({ error: err });
+server.put("/api/dogs/:id", async (req, res) => {
+  const { id } = req.params;
+  const dog = req.body;
+  try {
+    const updatedDog = await Dog.update(id, dog);
+    if (updatedDog) {
+      res.json(updatedDog);
+    } else {
+      res.status(404).json({ messsage: "bad id" });
     }
-  };
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: err });
+  }
+});
+
+// [PATCH] /api/dogs/:id (U of CRUD, update dog with :id using JSON payload adjusting only specified values and NOT overwriting entire object like PUT method)
+server.patch("/api/dogs/:id", async (req, res) => {
+  const { id } = req.params;
+  const dog = req.body;
+  try {
+    const updatedDog = await Dog.modify(id, dog);
+    if (updatedDog) {
+      res.json(updatedDog);
+    } else {
+      res.status(404).json({ messsage: "bad id" });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: err });
+  }
+});
 
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
 server.delete("/api/dogs/:id", async (req, res) => {
