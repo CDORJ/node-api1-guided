@@ -6,7 +6,7 @@ const Dog = require("./dog-model");
 const server = express();
 
 // GLOBAL MIDDLEWARE
-server.use(express.json);
+server.use(express.json());
 
 // ENDPOINTS
 // ENDPOINTS
@@ -19,12 +19,22 @@ server.get("/", (req, res) => {
 });
 
 // [GET] /api/dogs/:id (R of CRUD, fetch dog by :id)
+server.get("/api/dogs/:id", async (req, res) => {
+  const { id } = req.params;
+  const specificDog = await Dog.findById(id);
+  
+  if (specificDog === undefined) {
+    res.status(404).send({ message: "Dog not found. Invalid ID." });
+  } else {
+    res.send(specificDog);
+  }
+});
+
+// [GET] /api/dogs (R of CRUD, fetch all dogs)
 server.get("/api/dogs", async (req, res) => {
   const dogs = await Dog.findAll();
   res.send(dogs);
 });
-
-// [GET] /api/dogs (R of CRUD, fetch all dogs)
 
 // [POST] /api/dogs (C of CRUD, create new dog from JSON payload)
 server.post("/api/dogs", async (req, res) => {
