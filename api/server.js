@@ -41,7 +41,9 @@ server.post("/api/dogs", async (req, res) => {
   const { name, weight } = req.body;
 
   if (!name || !weight) {
-    res.status(400).send({ message: "name and weight required" });
+    res.status(400).send({
+      message: "Can't add dog to the database. Name and weight are required.",
+    });
   } else {
     const newDog = await Dog.create({ name, weight });
     res.status(200).send(newDog);
@@ -58,6 +60,21 @@ server.put("/api/dogs/:id", async (req, res) => {
 });
 
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
+server.delete("/api/dogs/:id", async (req, res) => {
+  const { id } = req.params;
+
+  const deletedDog = await Dog.delete(id);
+
+  if (deletedDog === null) {
+    res
+      .status(404)
+      .send({ message: `Invalid ID. There is no dog with an ID of: ${id}.` });
+  } else {
+    res.status(200).send({
+      message: `${deletedDog.name} has been successfully removed from the database.`,
+    });
+  }
+});
 
 // EXPOSING THE SERVER TO OTHER MODULES
 module.exports = server;
