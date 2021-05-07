@@ -22,7 +22,7 @@ server.get("/", (req, res) => {
 server.get("/api/dogs/:id", async (req, res) => {
   const { id } = req.params;
   const specificDog = await Dog.findById(id);
-  
+
   if (specificDog === undefined) {
     res.status(404).send({ message: "Dog not found. Invalid ID." });
   } else {
@@ -49,6 +49,13 @@ server.post("/api/dogs", async (req, res) => {
 });
 
 // [PUT] /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
+server.put("/api/dogs/:id", async (req, res) => {
+  const { id } = req.params;
+  const changes = req.body;
+
+  const updatedDog = await Dog.update(id, changes);
+  res.status(200).send(updatedDog);
+});
 
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
 

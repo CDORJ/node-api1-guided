@@ -29,7 +29,7 @@ module.exports = {
     const dog = dogs.find(dog => dog.id === id)
     if (!dog) return Promise.resolve(null)
 
-    const updatedDog = { ...changes, id }
+    const updatedDog = { ...dog, ...changes }
     dogs = dogs.map(d => (d.id === id) ? updatedDog : d)
     return Promise.resolve(updatedDog)
   },
